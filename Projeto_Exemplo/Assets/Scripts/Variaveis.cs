@@ -14,7 +14,16 @@ public class Variaveis : MonoBehaviour
     bool trufal;
     string result;
     */
+
+    // enum AI {Attack, Run, Patroll}
     
+    //Creating Objects
+    Feline feline_01;
+    Feline feline_02;
+
+    Cat cat_01;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -140,9 +149,137 @@ public class Variaveis : MonoBehaviour
                 break;
         }
 
-        */
 
+        --For--
+
+        for (int i = 0; i<10; i++){
+            print(i);
+        }
+
+        --While--
+
+        int i=0;
+        while(i<=10){
+            print(i);
+            i++;
+        }
+
+        --Do-While-- 
         
+        Do While é usado pois a verificação da condição é feita ao final 
+        da interação, diferente do while "cru".
+
+        int i = 10;
+        do{
+          print(i);
+          i++;
+        }while(i<=10);
+
+        --For-Each-- 
+        
+        For Each é usado para percorrer um vetor.
+
+        string[] enemies;
+        enemies = new string[4];
+        enemies[0] = "caveira";
+        enemies[1] = "litch";
+        enemies[2] = "esqueleto";
+        enemies[3] = "mindmaster";
+
+        foreach(string name in enemies){
+            print(name);
+        }
+
+        --Break e continue-- 
+        São palavras do sistema que são usadas para quebrar um laço ou continuar para a próxima interação.
+
+
+        string[] enemies;
+        enemies = new string[4];
+        enemies[0] = "caveira";
+        enemies[1] = "litch";
+        enemies[2] = "esqueleto";
+        enemies[3] = "mindmaster";
+
+        foreach(string name in enemies){
+            //print(name);
+            if(name == "esqueleto"){
+                //break;
+                continue;
+            }
+            print(name);
+        }
+        
+        --Lista-- 
+
+        List<int> listInt = new List<int>();
+        listInt.Add(100);
+        listInt.Add(200);
+        listInt.Add(300);
+
+        listInt.Remove(100);
+
+        //print(listInt[1]);
+
+        print(listInt.IndexOf(300));
+
+        List<int> listInt = new List<int>();
+        for(int i=0; i<=9;i++){
+            listInt.Add(i);
+        }
+
+        foreach(int values in listInt){
+            print(values);
+        }
+
+        --Dictionaries-- 
+
+        Dicionarios servem para associar chaves à valores. (Tipo Assossiar nome/tipo de vilão
+        com suas habilidades).
+        
+        Dictionary<string,string> villain = new Dictionary<string, string>();
+
+        villain.Add("Killer","First Villain");
+        villain.Add("Jumper","Jumper Villain");
+        villain.Add("Shooter","Shooting Villain");
+
+        foreach(string key in villain.Keys){
+            print(key);
+            print(villain[key]);
+        }
+       
+        --Enumeradores--
+        Enums são enumeradores que devem ser declarado fora das funções principais, no escopo da
+        classe.
+        Os valores nomeados abaixo são respectivos à valores inteiros.
+
+        Declaração:
+
+        enum AI {Attack, Run, Patroll}
+
+        Uso no código:
+
+        AI villain_01 = AI.Patroll;
+        AI villain_02 = AI.Attack;
+
+        int v1 = (int)villain_02;
+        
+        print(v1);
+        print(villain_01);
+        print(villain_02);
+
+
+        --Montagem dos objetos--
+        feline_01 = new Feline ();
+        feline_02 = new Feline ();
+
+        //Acesso à atributos protegidos pela classe filha.
+        cat_01 = new Cat();
+        cat_01.access();
+        */
+        
+        cat_01 = new Cat();
+        cat_01.access();
     }
 
     // Update is called once per frame
@@ -152,4 +289,24 @@ public class Variaveis : MonoBehaviour
         //moeda += 1;
         //print(moeda);
     }
+}
+
+//Class sample
+class Feline : MonoBehaviour{
+    //Atributos
+    protected string name;
+    string furColor;
+    int strenght;
+    //Metodos
+    void attack(){
+        return;
+    }
+}
+
+//Polimorfismo e uso de atributos protegidos.
+class Cat : Feline{
+    public void access(){
+        print(name = "Cat");
+    }
+
 }
