@@ -18,11 +18,26 @@ public class Variaveis : MonoBehaviour
     // enum AI {Attack, Run, Patroll}
     
     //Creating Objects
-    Feline feline_01;
-    Feline feline_02;
+   // Feline feline_01;
+    //Feline feline_02;
 
-    Cat cat_01;
+    //Cat cat_01;
 
+    //methods sum;
+
+    //methods obj;
+
+    //parent p;
+
+    //son son;
+
+    //calculator calc;
+
+    //parent p;
+
+    //lion leo;
+
+    //cat cato;
 
     // Start is called before the first frame update
     void Start()
@@ -276,10 +291,65 @@ public class Variaveis : MonoBehaviour
         //Acesso à atributos protegidos pela classe filha.
         cat_01 = new Cat();
         cat_01.access();
+
+        //Chamada de metodos
+
+        sum = new methods();
+        print(sum.sum(1,1));
+
+        //Alimentando construtores.
+        
+        obj = new methods(10,"Sample");
+        //print(obj.val1);
+        //obj.val1 = 1000;
+        print(obj.val1);
+        print(obj.str1);
+
+
+        //Chamando metodos estáticos. (Metodos estáticos são metodos que não necessitam
+        //da criação de um objeto novo).
+        int return1 = methods.sum(1,1);
+
+        print(return1);
+
+        //This and Base
+
+        p = new parent(25);
+        print(p.age);
+
+        son = new son();
+        son.getAge();
+
+
+        // Sobrecarga de métodos.
+        
+        int   resultInt;
+        float resultFloat;
+
+        calc = new calculator();
+
+        resultInt   = calc.calculate(1,2);
+        resultFloat = calc.calculate(1.1f,2.2f);
+
+        print(resultInt);
+        print(resultFloat);
+
+        //Encapsulamento
+        p = new parent();
+        p.Age = 19;
+        print(p.Age);
+
+        //Polimorfismo
+
+        leo  = new lion();
+        cato = new cat();
+        
+        leo.eat();
+        cato.eat();
+
+
         */
         
-        cat_01 = new Cat();
-        cat_01.access();
     }
 
     // Update is called once per frame
@@ -292,6 +362,7 @@ public class Variaveis : MonoBehaviour
 }
 
 //Class sample
+/*
 class Feline : MonoBehaviour{
     //Atributos
     protected string name;
@@ -310,3 +381,92 @@ class Cat : Feline{
     }
 
 }
+*/
+/*
+class methods  {
+    public int sum(int value1, int value2){
+        int result = value1 + value2;
+        return result;
+    }
+}
+
+
+//Uso de construtores
+class methods{
+    public int val1;
+    public string str1;
+
+    public methods(int val1, string str1){
+        this.val1 = val1;
+        this.str1 = str1;
+    }
+}
+
+//Criando métodos estáticos 
+class methods{
+    public static int sum(int val1, int val2){
+        int result = val1 + val2;
+        return result;
+    }
+}
+
+
+
+// Base and Age
+
+class parent : MonoBehaviour{
+    public int age = 25;
+    
+    //public parent(int age){
+    //    this.age = age;
+    //}
+    
+}
+
+class son : parent{
+    public void getAge(){
+        print(base.age);
+    }
+}
+
+
+class parent : MonoBehaviour{
+    private int age = 18;
+
+    public int Age{
+        get{return age;}
+        set{    if(value >= 20){
+                    age = value;
+                }else{
+                    print("Error");
+                }
+            }
+    }
+}
+
+
+// Polimorfismo
+class animal : MonoBehaviour{
+    public virtual void eat(){
+        print("Is eating");
+    }
+}
+
+class lion : animal{
+
+    public override void eat()
+    {
+        print("Lion is eating");
+    }
+
+}
+
+class cat : animal{
+    public override void eat()
+    {
+        print("Cat is eating");
+    }
+}
+
+*/
+
